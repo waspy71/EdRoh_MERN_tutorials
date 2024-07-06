@@ -1,1 +1,1 @@
-# EdRoh_MERN_tutorials
+# Repository for MERN tutorials by Ed Roh
