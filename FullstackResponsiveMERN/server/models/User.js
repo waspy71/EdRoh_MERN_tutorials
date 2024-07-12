@@ -5,28 +5,28 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
     min: 2,
-    max: 50,
+    max: 50
   },
   lastName: {
     type: String,
     required: true,
     min: 2,
-    max: 50,
+    max: 50
   },
   email: {
     type: String,
     required: true,
     max: 50,
-    unique: true,
+    unique: true
   },
   password: {
     type: String,
     required: true,
-    min: 5,
+    min: 5
   },
   picturePath: {
     type: String,
-    default: "",
+    default: ""
   },
   friends: {
     type: Array,
@@ -35,11 +35,20 @@ const UserSchema = new mongoose.Schema({
   location: String,
   occupation: String,
   viewedProfile: Number,
-  impressions: Number,
+  impressions: Number
 },
-/*  appemds automatic date when created */
-  { timestamps: true }
+/*  appends automatic date when created */
+{ timestamps: true }
 )
+
+UserSchema.set('toJSON', {
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString()
+    delete returnedObject._id
+    delete returnedObject.__v
+    delete returnedObject.password
+  }
+})
 
 const User = mongoose.model('User', UserSchema)
 

@@ -1,0 +1,26 @@
+
+GET http://localhost:3001/auth/register
+
+###
+POST http://localhost:3001/auth/register
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "JD@gmail.com",
+  "password": "qwert",
+  "picturePath": "",
+  "friends": "",
+  "location": "LA",
+  "occupation": "CEO"
+}
+
+###
+POST http://localhost:3001/auth/login
+Content-Type: application/json
+
+{
+  "email": "JD@gmail.com",
+  "password": "qwert"
+}
