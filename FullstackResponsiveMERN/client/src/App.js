@@ -1,21 +1,35 @@
 
-import { BrowseRouter, Navigate, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Navigate, Routes, Route} from 'react-router-dom'
 /* we don't need to prefix 'scenes' with './scenes' since we set up 'jsconfig.json' */
 import HomePage from 'scenes/homePage'
 import LoginPage from 'scenes/loginPage'
 import ProfilePage from 'scenes/profilePage'
+import { useMemo } from 'react'
+import { useSelector } from 'react-redux'
+import { CssBaseline, ThemeProvider } from '@mui/material'
+import { createTheme } from '@mui/material/styles'
+import { themeSettings } from './theme'
+
+
 
 
 function App() {
+  const mode = useSelector(({ mode }) => mode)
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode])
+
+
   return (
     <div className="app">
-      <BrowseRouter>
-        <Routes>
-          <Route path='/' element={<LoginPage />} />
-          <Route path='/home' element={<HomePage />} />
-          <Route path='/profile/:userId' element={<ProfilePage />} />
-        </Routes>
-      </BrowseRouter>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Routes>
+            <Route path='/' element={<LoginPage />} />
+            <Route path='/home' element={<HomePage />} />
+            <Route path='/profile/:userId' element={<ProfilePage />} />
+          </Routes>
+        </ThemeProvider>
+      </BrowserRouter>
     </div>
   );
 }
