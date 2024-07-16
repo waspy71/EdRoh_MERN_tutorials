@@ -31,7 +31,7 @@ import FlexBetween from "components/FlexBetween"
 
 
 const Navbar = () => {
-  const { isMobileMenuToggled, setIsMobileMenuToggled } = useState(false)
+  const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const user = useSelector(({ user }) => user)
@@ -112,7 +112,9 @@ const Navbar = () => {
               <MenuItem value={fullName}>
                 <Typography>{fullName}</Typography>
               </MenuItem>
-              <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
+              <MenuItem onClick={() => dispatch(setLogout())}>
+                Log Out
+              </MenuItem>
             </Select>
           </FormControl>
         </FlexBetween>
@@ -157,7 +159,7 @@ const Navbar = () => {
               {theme.palette.mode === 'dark' ? (
                 <DarkMode sx={{ fontSize: '25px' }} />
               ) : (
-                <LightMode sx={{ color: 'dark', fontSize: '25px' }} />
+                <LightMode sx={{ color: dark, fontSize: '25px' }} />
               )}
             </IconButton>
             <Message sx={{ fontSize: '25px' }} />
