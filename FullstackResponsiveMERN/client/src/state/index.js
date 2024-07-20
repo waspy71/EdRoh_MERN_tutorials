@@ -35,7 +35,7 @@ const authSlice = createSlice({
     },
     setPost: (state, action) => {
       const updatedPosts = state.posts.map((post) => {
-        if(post.id === action.payload.post_id) {
+        if(post.id === action.payload.post.id) {
           return action.payload.post
         } else {
           return post 
