@@ -28,7 +28,7 @@ const UserWidget = ({ userId, picturePath }) => {
   const dark = palette.neutral.dark
   const medium = palette.neutral.medium
   const main = palette.neutral.main
-/////////////
+
   const getUser = async () => {
     /* Added 'if' statement to lower request count if you are viewing own profile*/
     if (userStore.id === userId) {
