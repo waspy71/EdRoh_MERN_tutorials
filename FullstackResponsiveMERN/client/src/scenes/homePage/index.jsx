@@ -12,6 +12,7 @@ const HomePage = () => {
   const isNonMobileScreens = useMediaQuery('(min-width:1000px)')
   const { id, picturePath } = useSelector(({ user }) => user)
 
+  /* Verify wether UserWidget needs userId and picturePath for functionality */
   return (
   <Box>
     <Navbar />
