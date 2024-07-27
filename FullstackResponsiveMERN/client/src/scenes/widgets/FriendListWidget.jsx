@@ -24,7 +24,7 @@ const FriendListWidget = ({ userId }) => {
         headers: { Authorization : `Bearer ${token}`}
       }
     )
-    console.log("XXX", userId)
+
     const data = await response.json()
     dispatch(setFriends({ friends: data }))
   }
@@ -33,7 +33,6 @@ const FriendListWidget = ({ userId }) => {
     getFriends()
   }, []) //eslint-disable-line react-hooks/exhaustive-deps
 
-  console.log('HERE', friends)
   return(
     <WidgetWrapper>
       <Typography 
