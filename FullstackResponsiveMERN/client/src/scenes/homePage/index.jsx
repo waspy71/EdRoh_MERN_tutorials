@@ -30,7 +30,8 @@ const HomePage = () => {
         flexBasis={isNonMobileScreens ? '42%' : undefined}
         mt={isNonMobileScreens ? undefined : '2rem'}
        >
-          <MyPostWidget picturePath={picturePath} />
+        {/* Moved 'picturePath' from 'MyPostWidget' props into the component*/}
+          <MyPostWidget />
           <PostsWidget userId={id} />
       </Box>
       {isNonMobileScreens && (
